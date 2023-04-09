@@ -6,7 +6,7 @@ const Loader = () => {
   return (
     <section>
       <div className="container">
-        <div className="card front-face">
+        <div className="c-card front-face">
           <header>
             <span className="logo">
               <img src="/logo.png" alt="" />
@@ -15,7 +15,7 @@ const Loader = () => {
             <img src="/chip.png" alt="" className="chip" />
           </header>
 
-          <div className="card-details">
+          <div className="c-card-detail">
             <div className="name-number">
               <h6>Card Number</h6>
               <h5 className="number">4063 2020 3070 5000</h5>
@@ -29,7 +29,7 @@ const Loader = () => {
           </div>
         </div>
 
-        <div className="card back-face">
+        <div className="c-card back-face">
           <h6>
             For customer service call +977 4343 4693 or email at
             mastercard@gmail.com

@@ -34,7 +34,7 @@ const CheckoutSummary = () => {
               return ( */}
                 <Card 
                 // key={id} 
-                cardClass='card'>
+                cardClass='card sumary'>
                   <h4>Product: name</h4>
                   <p>Quantity: cart quantity</p>
                   <p>Unit price: price</p>
