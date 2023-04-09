@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
-import loginImg from '../assets/login.png'
+import loginImg from './assets/login.png'
 import Loader from '../components/Loader'
 import Card from '../components/Card'
 

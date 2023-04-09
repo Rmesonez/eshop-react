@@ -7,7 +7,7 @@ import { useState } from 'react'
 // import { useDispatch } from 'react-redux'
 // import { addUserThunk } from '../store/slices/users.slice'
 import { useForm } from 'react-hook-form'
-import registerImg from '../assets/register.png'
+import registerImg from './assets/register.png'
 import Card from '../components/Card'
 
 const Register = () => {

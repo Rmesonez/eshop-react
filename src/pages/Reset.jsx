@@ -2,7 +2,7 @@ import './LogRegRes.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import resetImg from '../assets/forgot.png'
+import resetImg from './assets/reset.png'
 import Loader from '../components/Loader'
 import Card from '../components/Card'
 
