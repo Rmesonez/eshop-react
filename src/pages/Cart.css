@@ -1,0 +1,85 @@
+.table {
+    padding: 15px;
+    width: 90%;
+}
+
+.container-table{
+    width: 90%;
+    font-size: 1.4rem;
+    margin: 0 auto;  
+    border-bottom: 1px solid; 
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+}
+
+.info-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+.icons > * {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.container-table p{
+    padding: 10px;
+    margin: auto 0;
+    color: black;
+}
+
+.summary {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.card {
+    padding: 1rem;
+    margin: 10px 0;
+}
+
+.text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    color: orangered;
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 10px 0 ;
+    border: 1px solid rgb(1, 1, 68);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: rgb(1, 1, 68);
+    color: #fff;
+}
+
+.clear-cart{
+    margin: 0 20px;
+}

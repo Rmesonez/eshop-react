@@ -1,0 +1,54 @@
+#dark .header-container{
+    background-color: #451111;
+
+}
+
+#dark span{
+    color: #49E5FD;
+}
+
+#dark .active{
+    color: #49E5FD;
+}
+
+#dark .links .loged{
+    color: #49E5FD;
+}
+
+#dark .footer{
+    background-color: #451111;
+}
+
+#dark button{
+    background-color: #451111;
+    color: #fff;
+}
+
+#dark .price{
+    color: #451111;
+    font-weight: bold;
+}
+
+#dark .product-card{
+    background-color: #eee7e7;
+}
+
+#dark .next{
+    background-color: #451111;
+    color: #fff;
+}
+
+#dark .next:hover{
+    background-color: #fff;
+    color: #451111;
+}
+
+#dark .prev:hover{
+    background-color: #fff;
+    color: #451111;
+}
+
+#dark .prev{
+    background-color: #451111;
+    color: #fff;
+}

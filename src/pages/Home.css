@@ -1,0 +1,203 @@
+.home-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-areas: 
+        'filter slider'
+        'filter products';
+}
+
+.products-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1.8rem;
+    margin: 10px;
+    grid-area: products;
+}
+
+.filter-container{
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+    grid-area: filter;
+    border-right: 5px solid #ccc;
+}
+
+
+.form-group{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-group label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3b3939
+}
+
+.filter-container input, select{
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.filter-container button{
+    vertical-align: bottom;
+    width: 30%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: #033468;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* .not-show{
+    display: none;
+} */
+
+.rate-product{
+    width: 100%;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+    /* border: 1px solid; */
+}
+
+.rate-product h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b3939;
+}
+
+.rate-product img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.rate-form{
+    padding: 10px;
+}
+
+.rate-form label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3b3939;
+}
+
+.rate-form textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.rate-form button{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: #033468;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px 5px rgba(0,0,0,0.2);
+    padding: 1rem 1.5rem 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-card:hover{
+    transform: scale(1.05);
+}
+
+.product-card img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.product-card h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-card p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #3b3939;
+}
+
+.product-btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-btn button{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 8px;
+    margin: 10px 5px 0 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    color: #fff;
+    background: #033468;
+}
+
+.product-btn button:hover{
+    background-color: aquamarine;
+    color: darkslategrey;
+}
+
+.product-btn button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.product-btn button a:visited{
+    color: #fff;
+}

@@ -1,0 +1,21 @@
+
+.switch{
+    position:absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.switch span svg{
+  width: 25px;
+  height: 25px;
+}
+
+.moon{
+  color:#fff;
+}
+
+.sun{
+  color: goldenrod;
+}

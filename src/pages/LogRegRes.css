@@ -1,0 +1,150 @@
+.sect-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.auth {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    animation: slide-down 0.5s ease;
+}
+
+.form {
+    width: 35rem;
+    padding: 1.5rem;
+    animation: slide-up 0.5s ease;
+}
+
+h2 {
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
+
+form input[type="text"], input[type="email"], input[type="password"] {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 300;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+    border: 1px solid #777;
+    border-radius: 3px;
+    outline: none;
+}
+
+.reset-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.link-p{
+    text-align: center;
+    margin: 1rem;
+    color: #000;
+    align-self: center;
+}
+
+.login-register-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.link-login{
+    /* text-align: left; */
+    margin: 1rem;
+    color: #000;
+}
+
+.test{
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+    color: #000;
+    border: 1px solid #000;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+}
+
+.test div{
+    text-align: center;
+}
+
+.test p{
+    color: #000;
+}
+
+
+
+.register {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.register p{
+    color: #000;
+}
+
+@keyframes slide-up {
+    0% {
+    transform: translateY(-5rem);
+    }
+    100% {
+    transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+    transform: translateY(5rem);
+    }
+    100% {
+    transform: translateY(0);
+    }
+}
+
+.btn{
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 6px 8px;
+    margin: 0 5px 0 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    color: #fff;
+    background: #007bff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.google{
+    color: #fff;
+    background: orangered;
+    display: flex;
+    gap:10px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .img {
+        display: none;
+    }
+}

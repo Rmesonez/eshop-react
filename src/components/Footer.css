@@ -1,0 +1,13 @@
+.footer {
+    background-color: rgb(1, 1, 68);
+    color: #fff;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+}
+p {
+    color: #fff;
+}
+  
