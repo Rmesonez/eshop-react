@@ -65,7 +65,7 @@ section h1{
   }
     
 
-  .container .c-card {
+  .container.c-card {
     position: absolute;
     height: 100%;
     min-width: 100%;
@@ -93,7 +93,7 @@ section h1{
     font-size: 16px;
     font-weight: 400;
   }
-  .front-face .chip {
+  .front-face.chip {
     width: 50px;
   }
   .front-face .c-card-detail {
@@ -114,15 +114,15 @@ section h1{
   h5.name {
     margin-top: 20px;
   }
-  .c-card.back-face {
+  .c-card .back-face {
     border: none;
     padding: 15px 25px 25px 25px;
     transform: rotateY(180deg);
   }
-  .c-card.back-face h6 {
+  .c-card .back-face h6 {
     font-size: 8px;
   }
-  .c-card.back-face .magnetic-strip {
+  .c-card .back-face .magnetic-strip {
     position: absolute;
     top: 40px;
     left: 0;
