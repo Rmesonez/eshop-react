@@ -8,9 +8,36 @@
     font-size: 1.4rem;
     margin: 0 auto;  
     border-bottom: 1px solid; 
+    text-align: center;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    text-align: center;
+    grid-template-areas: 
+    'num title price quantity total remove'
+    ;
+}
+
+.title-1{
+    grid-area: num;
+}
+
+.title-2{
+    grid-area: title;
+}
+
+.title-3{
+    grid-area: price;
+}
+
+.title-4{
+    grid-area: quantity;
+}
+
+.title-5{
+    grid-area: total;
+}
+
+.title-6{
+    grid-area: remove;
 }
 
 .info-image{
@@ -20,7 +47,6 @@
 }
 
 .title{
-    
     font-size: 1.5rem;
     font-weight: 600;
     padding: 10px;
@@ -68,7 +94,7 @@ h3 {
 button {
     margin: 10px 0 ;
     border: 1px solid rgb(1, 1, 68);
-    padding: 10px 20px;
+    padding: 5px 15px;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
@@ -83,3 +109,87 @@ button:hover {
 .clear-cart{
     margin: 0 20px;
 }
+
+.checkout{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+@media screen and (max-width: 768px) {
+    .container-table{
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        'num sn'
+        'title image'
+        'price mount'
+        'quantity count'
+        'total tmount'
+        'remove rembtn'
+        ;
+    }
+
+    .title{
+        border: none;
+        margin: auto 0;
+    }
+
+    .info-sn{
+        grid-area: sn;
+    }
+
+    .info-image{
+        grid-area: image;
+    }
+
+    .info-price{
+        grid-area: mount;
+    }
+
+    .count{
+        grid-area: count;
+    }
+
+    .info-total{
+        grid-area: tmount;
+    }
+
+    .icons{
+        grid-area: rembtn;
+    }
+
+    .container-table p{
+        width: 100%;
+    }
+
+    .info-image{
+        grid-area: image;
+    }
+
+    .card {
+        margin: 10px 0;
+    }
+
+    .text {
+        flex-direction: column;
+    }
+
+    .count {
+        margin: 10px 0;
+    }
+
+    .clear-cart{
+        margin: 0 auto;
+    }
+
+    .checkout{
+        align-items: center;
+    }
+
+    .qty{
+        font-size: 1rem;
+    }
+
+}
+    

@@ -144,8 +144,14 @@ form input[type="text"], input[type="email"], input[type="password"] {
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     .img {
         display: none;
+    }
+    .form {
+        width: 100%;
+    }
+    .test{
+        flex-direction: column;
     }
 }

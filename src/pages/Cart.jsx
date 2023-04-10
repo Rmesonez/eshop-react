@@ -17,35 +17,29 @@ const Cart = () => {
             </div>
             
          <div className="container-table">       
-                
-                  <h5 className="title">s/n</h5>
-                  <h5 className="title">Product</h5>
-                  <h5 className="title">Price</h5>
-                  <h5 className="title">Quantity</h5>
-                  <h5 className="title">Total</h5>
-                  <h5 className="title">Action</h5>
-                
 
-                
+                  <h5 className="title title-1">s/n</h5>
                     <p className="info-sn">+1</p>
+                  <h5 className="title title-2">Product</h5>
                     <div className='info-image'>
-                    <p>
-                      <b> name </b>
-                    </p>
                     <img
                           // src={imageURL}
                           // alt={name}
                           // style={{ widh5: "100px" }}
                     />
+                    <p>
+                      <b> name </b>
+                    </p>
                     </div>
+                  <h5 className="title title-3">Price</h5>
                     <p className="info-price">price</p>
-
+                    <h5 className="title title-4">Quantity</h5>
                     <div className='count'>
                       <button
                       className="btn-minus">
                         -
                       </button>
-                          <p>
+                          <p className="qty">
                             <b>quantity</b>
                           </p>
                           <button
@@ -54,8 +48,9 @@ const Cart = () => {
                             +
                           </button>
                       </div>
-
+                      <h5 className="title title-5">Total</h5>
                       <p className="info-total">price s/dec</p>
+                      <h5 className="title title-6">Action</h5>
                       <div className='icons'>
                         <FaTrashAlt
                           size={19}

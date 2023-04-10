@@ -60,3 +60,23 @@
     background: #033468;
 }
 
+@media screen and (max-width: 768px){
+    .product-detail{
+        flex-direction: column;
+    }
+
+    .product-detail img{
+        width: 100%;
+        height: 300px;
+    }
+
+    .info-detail{
+        width: 100%;
+    }
+
+    .product-info-btn{
+        width: 100%;
+    }
+}
+    
+

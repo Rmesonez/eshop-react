@@ -10,8 +10,8 @@ const Contact = () => {
   return (
     <div>
     <div className='contact-container'>
-      <div className='section-contact'>
       <h2>Contact Us</h2>
+      <div className='section-contact'>
         <form 
         className="contact-form"
         // ref={form} 
@@ -30,7 +30,7 @@ const Contact = () => {
             <input
               type="email"
               name="user_email"
-              placeholder="Your active email"
+              placeholder="Your email"
               required
             />
             <label>Subject</label>
@@ -59,7 +59,7 @@ const Contact = () => {
               </span>
               <span>
                 <FaEnvelope />
-                <p>rmesonezs@gmail.com</p>
+                <p>rmesonez@gmail.com</p>
               </span>
               <span>
                 <GoLocation />
