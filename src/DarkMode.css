@@ -52,3 +52,7 @@
     background-color: #451111;
     color: #fff;
 }
+
+#dark .icons span{
+    color: #451111;
+}
