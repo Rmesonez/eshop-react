@@ -121,5 +121,6 @@ width: 50%;
     }
     .content {
       width: 80%;
+      top: 7rem;
     }
 }
