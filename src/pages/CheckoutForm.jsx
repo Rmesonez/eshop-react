@@ -22,8 +22,8 @@ const CheckoutForm = () => {
             <Card cardClass='card pay'>
               <h3>Stripe Checkout</h3>
               {/* <PaymentElement id="payment-element" /> */}
-              <input type="text" />
-              <select>
+              <input type="text" className='input'/>
+              <select className='select'>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

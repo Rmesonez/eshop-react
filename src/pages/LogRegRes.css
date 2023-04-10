@@ -13,10 +13,11 @@
 
 .img {
     animation: slide-down 0.5s ease;
+    margin: 0 20px;
 }
 
 .form {
-    width: 35rem;
+    width: 30rem;
     padding: 1.5rem;
     animation: slide-up 0.5s ease;
 }
