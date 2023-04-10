@@ -2,10 +2,8 @@ import './LogRegRes.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import resetImg from './assets/reset.png'
 import Loader from '../components/Loader'
 import Card from '../components/Card'
-
 const Reset = () => {
 
   const [email, setEmail] = useState('')
@@ -38,7 +36,7 @@ const Reset = () => {
     {loading && <Loader />}
     <div className='auth sec-container'>
       <div className="img">
-      <img src={resetImg} alt="reset password" width={600} height={500}/>
+      <img src='/forgot.png' alt="reset password" width={600} height={500}/>
     </div>
     <Card>
     <div className="form">

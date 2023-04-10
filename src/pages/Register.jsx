@@ -7,7 +7,6 @@ import { useState } from 'react'
 // import { useDispatch } from 'react-redux'
 // import { addUserThunk } from '../store/slices/users.slice'
 import { useForm } from 'react-hook-form'
-import registerImg from './assets/register.png'
 import Card from '../components/Card'
 
 const Register = () => {
@@ -102,7 +101,7 @@ const Register = () => {
     </div>
     </Card>
     <div className="img">
-      <img src={registerImg} alt="register image" width={600} height={650}/>
+      <img src='/register.png' alt="register image" width={600} height={650}/>
     </div>
   </div>
 </>

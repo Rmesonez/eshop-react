@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
-import loginImg from './assets/login.png'
 import Loader from '../components/Loader'
 import Card from '../components/Card'
 
@@ -55,7 +54,7 @@ const Login = () => {
     <ToastContainer />
     <div className='auth sec-container'>
       <div className="img">
-        <img src={loginImg} alt="login image" width={600} height={650}/>
+        <img src='/login.png' alt="login image" width={600} height={650}/>
       </div>
       <Card>
       <div className="form">
