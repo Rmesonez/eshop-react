@@ -1,6 +1,6 @@
 section {
   position: fixed;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background: #14171e;
   display: flex;
