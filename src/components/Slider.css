@@ -124,4 +124,7 @@ width: 50%;
       top: 1rem;
       left: 5%;
     }
+    .slider-btn{
+      width: 50%;
+    }
 }
