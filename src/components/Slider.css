@@ -1,6 +1,6 @@
 .slider {
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     position: relative;
     overflow: hidden;
     background-color: var(--color-dark);
@@ -42,7 +42,7 @@ transition: all 0.5s ease;
     /* visibility: hidden; */
 }
 .content h2 {
-    font-size: 4.5rem;
+    font-size: 4rem;
 }
 
 @keyframes slide-up {
