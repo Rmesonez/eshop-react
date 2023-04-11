@@ -1,7 +1,7 @@
 .home-container{
     width: 100%;
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 350px 1fr;
     grid-template-areas: 
         'filter slider'
         'filter products';
@@ -80,6 +80,7 @@
     gap: 20px;
     text-align: center;
 }
+
 
 .rate-product h2{
     font-size: 1.5rem;
@@ -163,7 +164,7 @@
 }
 
 .product-btn{
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -171,9 +172,9 @@
 
 .product-btn button{
     width: 100%;
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: bold;
-    padding: 6px 8px;
+    padding: 5px 7px;
     margin: 10px 5px 0 0;
     border: 1px solid transparent;
     border-radius: 3px;

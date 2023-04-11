@@ -1,5 +1,5 @@
 .card{
-    width: 100%;
+    min-width: 350px;
     padding: 1rem;
     border: 1px solid lightblue;
     margin-bottom: 5px;
@@ -36,3 +36,11 @@ align-items: center;
     margin: 30px auto;
 }
 
+@media screen and (max-width: 1200px) {
+    .checkout-summary{
+        width: 100%;
+    }
+    .card{
+        min-width: 100%;
+    }
+  }
