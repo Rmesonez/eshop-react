@@ -5,9 +5,9 @@ import { useState, useEffect, createContext } from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import ReactSwitch from 'react-switch';
 //components
-import { Footer, NavBar, Loader } from './components/index'
+import { Footer, NavBar, Loader, Protect } from './components/index'
 //pages
-import { Home, Contact, Login, Reset, Register, Purchases, ProductsDetail, Cart, CheckoutForm } from './pages/index'
+import { Home, Contact, Login, Register, Purchases, ProductsDetail, Cart, CheckoutForm } from './pages/index'
 
 
 export const ThemeContext = createContext(null);
@@ -57,11 +57,13 @@ function App() {
               <Route path="/contact" element={ <Contact /> } />
               <Route path="/login" element={ <Login /> } />
               <Route path="/register" element={ <Register /> } />
-              <Route path="/reset" element={ <Reset /> } />
-              <Route path="/purchases" element={ <Purchases /> } />
               <Route path="/products/:id" element={ <ProductsDetail /> } />
               <Route path="/cart" element={ <Cart /> } />
-              <Route path="/checkout" element={ <CheckoutForm /> } />
+
+              <Route element={ <Protect /> }>
+                <Route path="/purchases" element={ <Purchases /> } />
+                <Route path="/checkout" element={ <CheckoutForm /> } />
+              </Route>
 
             </Routes>
           <Footer />

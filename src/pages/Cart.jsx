@@ -1,13 +1,19 @@
 import { FaTrashAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import './Cart.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect} from 'react';
+import { getCartItemsThunk } from '../store/slices/cart.slice';
 
 const Cart = () => {
 
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCartItemsThunk());
+  }, []);
 
   return (
     <div>

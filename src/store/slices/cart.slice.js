@@ -1,33 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import axios from "axios";
+import  getConfig from "../../helpers/getConfig";
 
 export const cartSlice = createSlice({
     name: "cart",
-    initialState: {
-        cart: [],
-        cartItems: 0,
-    },
+    initialState: [],
     reducers: {
-        addToCart: (state, action) => {
-            state.cart.push(action.payload);
-            state.cartItems++;
+        setCartItems: (state, action) => {
+            return action.payload;
         },
-        removeFromCart: (state, action) => {
-            state.cart = state.cart.filter((item) => item.id !== action.payload.id);
-            state.cartItems--;
-        },
-        clearCart: (state) => {
-            state.cart = [];
-            state.cartItems = 0;
-        },
-    },
+    }
 });
 
+export const getCartItemsThunk = () => (dispatch) => {
+    axios.get('https://e-commerce-api-v2.academlo.tech/api/v1/cart', getConfig())
+    .then((res) => {
+        // dispatch(setCartItems(res?.data))
+        console.log(res?.data)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
-export const selectCart = (state) => state.cart.cart;
-export const selectCartItems = (state) => state.cart.cartItems;
 
+
+export const { setCartItems } = cartSlice.actions;
 
 export default cartSlice.reducer;

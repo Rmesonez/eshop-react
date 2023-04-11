@@ -1,16 +1,26 @@
 .checkout {
     width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
 }
 
-.div {
+.checkout h2{
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.div-form {
     width: 100%;
     padding: 1rem;
     margin: 1rem auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.pay{
+  width: 600px;
+  height: 100%;
 }
   
 .card h3 {
@@ -85,15 +95,10 @@ label {
   } 
 
 
-   @media screen and (max-width: 700px) {
-    .checkout {
+ @media screen and (max-width: 1200px) {
+    
+    .div-form {
         flex-direction: column;
-    }
-    form {
-        flex-direction: column;
-      }
-    .div {
-        width: 100%;
     }
   }
   

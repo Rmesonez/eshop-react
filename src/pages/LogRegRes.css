@@ -27,7 +27,7 @@ h2 {
     text-align: center;
 }
 
-form input[type="text"], input[type="email"], input[type="password"] {
+form input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
     display: block;
     font-size: 1.6rem;
     font-weight: 300;

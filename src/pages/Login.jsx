@@ -5,47 +5,49 @@ import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 import Loader from '../components/Loader'
 import Card from '../components/Card'
+import axios from 'axios';
 
 const Login = () => {
 
   const [loading, setLoading] = useState(false)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const { handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate()
 
 
-  const loginUser = () => {
-    const localEmail = localStorage.getItem('email')
-    const localPassword = localStorage.getItem('password')
-    if(email === localEmail && password === localPassword){
-      setLoading(true)
-      setTimeout(() => {
-        setLoading(false)
-      }, 2000)
+  const submit = (data) => {
+    setLoading(true)
+    axios.post('https://e-commerce-api-v2.academlo.tech/api/v1/users/login', data)
+    .then((res) => {
+      // console.log(res.data)
+      localStorage.setItem('token', res?.data?.token)
       toast.success('Login Successful')
       setTimeout(() => {
         resetForm()
         navigate('/')
         window.location.reload()
       }, 2000)
-    }else if(email === '' || password === '' ){
-      toast.error('Please fill in all fields')
-    }else if(email !== localEmail && password === localPassword){
-      toast.error('Login Failed the email is incorrect')
-    }else if(email === localEmail && password !== localPassword){
-      toast.error('Login Failed the password is incorrect')
-    }else if(!localEmail && !password){
-      toast.error('Login Failed do you have an account?')
-    }else {
-      toast.error('Login Failed do you have an account?')
-    }
- }
+    })
+    .catch((error) => {
+      if(error.response?.status === 401){
+        toast.error('User or Password Incorrect')
+        resetForm()
+      }else if(error.response?.status === 400){
+        toast.error('User or Password Incorrect')
+        resetForm()
+      }else if(error.response?.status === 403){
+        toast.error('User or Password Incorrect')
+        resetForm()
+      }else{
+      console.log(error)
+      }
+    })
+    .finally (() => {
+      setLoading(false)
+    })
+  }
 
  const resetForm = () => {
   reset()
-  setEmail('')
-  setPassword('')
 }
 
   return (
@@ -66,28 +68,24 @@ const Login = () => {
           <p>john1234</p>
         </div>
         <div>
-          <h3>Create Account</h3>
-          {/* <p>Admin</p>
-          <p>admin</p> */}
+          <h3>Create an Account</h3>
         </div>
         </div>
-        <form onSubmit={handleSubmit(loginUser)}>
+        <form onSubmit={handleSubmit(submit)}>
           <input type="email" placeholder='Email' 
-          value={email}
-          onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())}
+          {...register("email")}
           required/>
           <input type="password" placeholder='Password' 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          {...register("password")}
           required/>
           <button 
           className='btn'
           type='submit'>Login</button>
-          <div className="reset-links">
+          {/* <div className="reset-links">
             <Link to='/reset'>
               Forgot your Password?
             </Link>
-          </div>
+          </div> */}
         </form>
           <span className='register'>
             <p>Don't have an account?</p>

@@ -4,66 +4,46 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../components/Loader'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-// import { useDispatch } from 'react-redux'
-// import { addUserThunk } from '../store/slices/users.slice'
 import { useForm } from 'react-hook-form'
 import Card from '../components/Card'
+import axios from 'axios';
 
 const Register = () => {
 
-  // const dispatch = useDispatch()
-  const { handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate()
-
-  const [username, setUserName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const registerUser = () =>{
-    // parameter data
-    // console.log(data)
-    // dispatch(addUserThunk(data))
-    const localEmail = localStorage.getItem('email')
-    const localUsername = localStorage.getItem('username')
-
-    if(password !== confirmPassword){
-      toast.error('Passwords do not match')
-    }else if(email === localEmail){
-      toast.error('Email already exists')
-    }else if(username === localUsername){
-      toast.error('Username already exists')
-    }else {
+  const submit= (data) => {
     setLoading(true)
-    console.log(username, email, password, confirmPassword)
-
-    localStorage.setItem('username', username)
-    localStorage.setItem('email', email)
-    localStorage.setItem('password', password)
-
-    setTimeout(() => {
+    axios.post('https://e-commerce-api-v2.academlo.tech/api/v1/users', data)
+    .then((res) => {
+      console.log(res?.data)
+      toast.success('Registration Successful')
+      setTimeout(() => {
+        resetForm()
+        navigate('/login')
+      }, 2000)
+    })
+    .catch((error) => {
+      if(error.response?.status === 400){
+        toast.error('Email already exists')
+        resetForm()
+      }else if(error.response?.status === 403){
+        toast.error('User already exists')
+        resetForm()
+      }else{
+      console.log(error)
+      }
+    })
+    .finally(() => {
       setLoading(false)
-    }, 2000)
-    toast.success('Registration Successful...')
-    
-    setTimeout(() => {
-      resetForm()
-      navigate('/login')
-    }, 2000)
-    }
+    })
   }
-
 
   const resetForm = () => {
     reset()
-    setUserName('')
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
   }
-
-
 
   return (
   <>
@@ -73,23 +53,18 @@ const Register = () => {
     <Card>
     <div className="form">
       <h2>REGISTER</h2>
-      <form onSubmit={ handleSubmit(registerUser) }>
-        <input type="text" placeholder='Username' required 
-        value={username}
-        onChange={(e) => setUserName(e.target.value)}
+      <form onSubmit={ handleSubmit(submit) }>
+        <input type="text" placeholder='First Name' required 
+        {...register('firstName')} 
         />
+        <input type="text" placeholder='Last Name' required 
+        {...register('lastName')}/>
         <input type="email" placeholder='Email' required 
-        value={email}
-        onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())}
-        />
+        {...register('email')}/>
         <input type="password" placeholder='Password' required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        />
-        <input type="password" placeholder='Confirm Password' required
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        />
+        {...register('password')}/>
+        <input type="number" placeholder='Phone Number' required
+        {...register('phone')}/>
         <button 
         className='btn'
         type='submit'>Register</button>

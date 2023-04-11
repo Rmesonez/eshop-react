@@ -8,7 +8,6 @@ import StarsRating from "react-star-rate";
 import { toast, ToastContainer } from "react-toastify";
 import Card from '../components/Card'
 import { getProductsThunk, filterCategoriesThunk, filterNameThunk } from '../store/slices/products.slice'
-import { addToCart } from '../store/slices/cart.slice' 
 import Loader from '../components/Loader'
 import Slider from '../components/Slider'
 

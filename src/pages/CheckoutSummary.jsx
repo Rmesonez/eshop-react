@@ -4,7 +4,7 @@ import './CheckoutSummary.css'
 
 const CheckoutSummary = () => {
   return (
-    <div>
+    <div className="checkout-summary">
       <h3>Checkout Summary</h3>
       <div>
         {/* {cartItems.lenght === 0 ? (

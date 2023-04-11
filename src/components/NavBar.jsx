@@ -37,6 +37,7 @@ const NavBar = () => {
 
     const [showMenu, setShowMenu] = useState(false)
     const [userName, setUserName] = useState('')
+    const [userLastName, setUserLastName] = useState('')
     const navigate = useNavigate()
 
     const toggleMenu = () => {
@@ -47,9 +48,14 @@ const NavBar = () => {
         setShowMenu(false)
     }
 
+    const token = localStorage.getItem('token')
+
     useEffect(() => {
-        if(localStorage.getItem('username') !== null){
-            setUserName(localStorage.getItem('username'))
+        if(token){
+            const user = JSON.parse(atob(token.split('.')[1]))
+            setUserName(user?.user?.firstName)
+            setUserLastName(user?.user?.lastName)
+            console.log(user)
         }else{
             setUserName(null)
         }
@@ -57,18 +63,12 @@ const NavBar = () => {
 
 
     const logOut = () => {
-        localStorage.removeItem('username')
-        localStorage.removeItem('email')
-        localStorage.removeItem('password')
-        localStorage.removeItem('token')
-        toast.success('Logout Successful')
+        toast.success('You have been logged out successfully')
+        localStorage.clear()
         setTimeout(() => {
-            navigate('/')
-        }, 2000)
-        if(localStorage.getItem('username') === null && localStorage.getItem('email') === null && localStorage.getItem('password') === null && localStorage.getItem('token') ===  null){
-            console.log('logged out')
-        }
+        navigate('/')
         window.location.reload()
+        }, 2000)
     }
 
   return (
@@ -122,7 +122,7 @@ const NavBar = () => {
                         userName !== null ? 'loged' : 'not-loged'
                     }>
                         <FaUserCircle size={18} /> 
-                        Hi, {userName}
+                        Hi, {userName} {userLastName}
                     </a>
                     <NavLink to='/register' className={ activeLink }>
                         Register

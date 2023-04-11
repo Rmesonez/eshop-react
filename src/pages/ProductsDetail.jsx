@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import ReactPaginate from "react-paginate"
 import axios from "axios"
 import Loader from "../components/Loader"
 import'./ProductsDetail.css'
