@@ -1,10 +1,11 @@
 import './CheckoutForm.css'
 import Card from '../components/Card';
 import CheckoutSummary from './CheckoutSummary';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
 // import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+
 
 
 
