@@ -14,6 +14,7 @@ const CheckoutForm = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvc, setCvc] = useState('');
+  const navigate = useNavigate();
 
   const submit = () => {
     if (cardNumber.length !== 16) {
@@ -58,11 +59,11 @@ const CheckoutForm = () => {
     });
     setTimeout(() => {
     navigate('/purchases');
-    }, 4000);
+    }, 3000);
   }
   }
 
-  const navigate = useNavigate();
+
 
   return (
     
