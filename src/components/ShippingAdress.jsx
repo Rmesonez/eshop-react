@@ -1,18 +1,21 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import getConfig from '../helpers/getConfig';
 
-const ShippingAdress = ({ show, handleClose }) => {
+const ShippingAdress = ({ show, handleClose, status, purchase }) => {
 
-    const submit = (e) => {
-        e.preventDefault()
-        document.getElementByClass('.status')
-        .innerHTML = 'Delivered'
-        handleClose()
+  const purchaseId = purchase.id
+
+    const submit = () => {
+    if (purchaseId === purchase.id){
+      status('Delivered')
+      handleClose()
+    }else{
+      status('Not Delivered')
+      handleClose()
     }
+  }
+
 
 
   return (
@@ -26,6 +29,13 @@ const ShippingAdress = ({ show, handleClose }) => {
     </Offcanvas.Header>
     <Offcanvas.Body>
     <Form onSubmit={submit}>
+
+        <Form.Group className="mb-3" id="formBasicName">
+        <Form.Label>PurchaseId</Form.Label>
+        <Form.Control type="text" value={purchaseId} 
+        disabled/>
+        </Form.Group>
+
         <Form.Group className="mb-3" id="formBasicName">
         <Form.Label>Name</Form.Label>
         <Form.Control type="text" placeholder="Enter name" 
@@ -47,13 +57,8 @@ const ShippingAdress = ({ show, handleClose }) => {
         <Form.Control type="text" placeholder="Enter city" required/>
         </Form.Group>
 
-        <Form.Group className="mb-3" id="formBasicState">
-        <Form.Label>State</Form.Label>
-        <Form.Control type="text" placeholder="Enter state" required />
-        </Form.Group>
-
         <Form.Group className="mb-3" id="formBasicZip">
-        <Form.Label>Zip</Form.Label>
+        <Form.Label>ZipCOde</Form.Label>
         <Form.Control type="text" placeholder="Enter zip" required/>
         </Form.Group>
 

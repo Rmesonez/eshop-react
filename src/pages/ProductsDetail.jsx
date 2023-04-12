@@ -13,12 +13,12 @@ const ProductsDetail = () => {
 
   const  { isLoading } = useSelector((state) => state.loading)
 
-  const { id } = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-
-
+  
+  
+  
+  const { id } = useParams()
 
   useEffect(() => {
     dispatch({ type: 'LOADING', payload: true })

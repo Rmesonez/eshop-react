@@ -30,7 +30,7 @@ const CheckoutSummary = () => {
                   <b>Quantity: {item.quantity}</b>
                 </p>
                 <p>
-                  <b>Price: {item.product.price}</b>
+                  <b>Price: $ {item.product.price}</b>
                 </p>
               </div>
               ))} 
@@ -42,7 +42,7 @@ const CheckoutSummary = () => {
             <div className='text'>
               <h4>Total:</h4>
               <h3>
-                {`${ cartItems.reduce((acc, item) => {
+                $ {`${ cartItems.reduce((acc, item) => {
                   return acc + item.product.price * item.quantity
                 }
                 , 0).toFixed(2) }`}

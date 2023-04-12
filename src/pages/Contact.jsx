@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
 
- const submitForm = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
+
+ const submitForm = () => {
     toast.success("Message sent successfully", {
       position: "top-right",
       autoClose: 2000,
@@ -21,7 +22,6 @@ const Contact = () => {
     });
     setTimeout(() => {
       navigate("/");
-      window.location.reload();
     }, 3000);
   };
 
@@ -36,7 +36,7 @@ const Contact = () => {
         <form 
         className="contact-form"
         // ref={form} 
-        // onSubmit={sendEmail}
+        onSubmit={submitForm}
         >
           <Card cardClass='contact-card'>
             <div className="card-contact">

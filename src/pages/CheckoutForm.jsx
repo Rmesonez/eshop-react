@@ -5,8 +5,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { cartCheckoutThunk } from '../store/slices/cart.slice';
-
-
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const CheckoutForm = () => {
@@ -15,6 +14,8 @@ const CheckoutForm = () => {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvc, setCvc] = useState('');
   const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart);
+
 
   const submit = () => {
     if (cardNumber.length !== 16) {
@@ -57,10 +58,17 @@ const CheckoutForm = () => {
       draggable: true,
       progress: undefined,
     });
+    checkout();
     setTimeout(() => {
     navigate('/purchases');
     }, 3000);
   }
+  }
+
+  const dispatch = useDispatch();
+
+  const checkout = () => {
+    dispatch(cartCheckoutThunk(cartItems));
   }
 
 
@@ -112,7 +120,7 @@ const CheckoutForm = () => {
               />
               </div>
               <button id="submit" className='button' disabled={
-                cardNumber.length !== 16 || expiryDate.length !== 5 || cvc.length !== 3
+                cardNumber.length !== 16 || expiryDate.length !== 5 || cvc.length !== 3 ? true : false
               }>
                 <span id="button-text">
                     Pay now

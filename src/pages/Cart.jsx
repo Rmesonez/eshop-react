@@ -64,7 +64,7 @@ const Cart = () => {
                       <b>Price</b>
                     </h5>
                     <p className="info-price">
-                      <b>{item?.product?.price}</b>
+                      <b>$ {item?.product?.price}</b>
                     </p>
                     <h5 className="title title-4">
                       <b>Quantity</b>
@@ -84,7 +84,7 @@ const Cart = () => {
                           <b>Total</b>
                         </h5>
                         <p className="info-total">
-                          <b>{item?.product?.price * item.quantity}</b>
+                          <b>$ {(item?.product?.price * item.quantity).toFixed(2)}</b>
                         </p>
                         <h5 className="title title-6">
                           <b>Actions</b>
@@ -126,7 +126,9 @@ const Cart = () => {
                         </div>
                   <button
                     className="--btn --btn-primary "
-                    onClick={() => {navigate("/checkout"), dispatch(cartCheckoutThunk())}}
+                    onClick={() => {navigate("/checkout")
+                    // , dispatch(cartCheckoutThunk())
+                  }}
                   >
                     Checkout
                   </button>

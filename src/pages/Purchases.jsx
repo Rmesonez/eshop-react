@@ -9,6 +9,7 @@ const Purchases = () => {
 
   const [purchases, setPurchases] = useState([])
   const [loading, setLoading] = useState(true)
+  const [ status, setStatus ] = useState('Not Delivered')
 
   useEffect(() => {
     setLoading(true)
@@ -32,7 +33,7 @@ const Purchases = () => {
     <div className='purchases-container'>
       <h1>Purchases</h1>
           <ul className='purchases-list'>
-          <button
+          {/* <button
                   onClick={() => {
                     setShow(true);
                 }}
@@ -41,25 +42,35 @@ const Purchases = () => {
                   <ShippingAdress show={ show } handleClose={ handleClose }
                   key={purchases.id}
                   purchases={purchases}
-                  />
+                  /> */}
             {
               purchases.map((purchase) => (
                 <li key={purchase.id}
                 className='purchases-item'>
                   <h3 id='purchase'># {purchase.id}</h3>
-                  <img src={purchase?.product?.images[2]?.url} alt={purchase?.product?.title} style={{ width: ' 120px', height: '70px'}} />
+                  <img src={purchase?.product?.images[0]?.url} alt={purchase?.product?.title} style={{ width: ' 120px', height: '70px'}} />
                   <h5> <b> Quantity: </b> {purchase.quantity}</h5>
                   <h5>{ purchase?.product?.title}</h5>
                   <h5> <b>Date: </b>  {purchase?.createdAt}</h5>
-                  <h5> <b>Price: </b> $ {purchase?.product?.price}</h5>
+                  <h5> <b>Unit Price: </b> $ {purchase?.product?.price}</h5>
                   <h5
                   id='status'
                   className={
-                    ShippingAdress ? 'delivered' : 'status'
+                    status === 'Not Delivered' ? 'status' : 'delivered'
                   }
-                  >{
-                    ShippingAdress ? 'Delivered' : 'Pending'}
+                  > {status}
                   </h5>
+                  <button
+                  onClick={() => {
+                    setShow(true)
+                }}
+                  >Shipping Adress
+                  </button>
+                  <ShippingAdress show={ show } handleClose={ handleClose }
+                  key={purchases.id}
+                  status={setStatus}
+                  purchase={purchase}
+                  />
                 </li>
               ))
               }
