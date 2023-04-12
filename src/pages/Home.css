@@ -164,6 +164,16 @@
     color: #3b3939;
 }
 
+.product-quantity{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    gap: 15px;
+    color: #3b3939;
+}
+
 .product-btn{
     width: 80%;
     display: flex;

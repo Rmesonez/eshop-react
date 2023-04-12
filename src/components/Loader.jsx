@@ -5,7 +5,7 @@ import React from 'react'
 const Loader = () => {
   return (
     <section>
-      <div className="container">
+      <div className="container-card">
         <div className="c-card front-face">
           <header>
             <span className="logo">

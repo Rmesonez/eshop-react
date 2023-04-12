@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 import Loader from "../components/Loader"
 import'./ProductsDetail.css'
+import { addCartItemThunk } from "../store/slices/cart.slice"
 
 const ProductsDetail = () => {
 
   const [productDetail, setProductDetail] = useState({})
+  const [quantity, setQuantity] = useState(1)
 
   const  { isLoading } = useSelector((state) => state.loading)
 
@@ -33,6 +35,14 @@ const ProductsDetail = () => {
     })
   }, [])
 
+  const addToCart = () => {
+    const data = {
+      quantity: quantity,
+      productId: productDetail.id
+    }
+    dispatch(addCartItemThunk(data))
+    
+  }
 
   const handleGoBack = () => {
     navigate('/')
@@ -50,6 +60,27 @@ const ProductsDetail = () => {
       <p>{productDetail?.stock}</p>
       <p>Category: <span>{productDetail?.category?.name}
       </span> 
+      <div className="detail-quantity">
+        <button
+         onClick={
+          () => {
+            if (quantity > 1) {
+              setQuantity(quantity - 1)
+            }else {
+              setQuantity(1)
+            }
+          }
+        }
+        >-</button>
+        <span>{ quantity }</span>
+        <button
+        onClick={
+          () => {
+          setQuantity(quantity + 1)
+          }
+        }
+        >+</button>
+      </div>
       </p>
           <div className="product-info-btn">
               
@@ -59,9 +90,11 @@ const ProductsDetail = () => {
                 Go Back
               </button>
               
-              <button>
+              <button
+              onClick={addToCart}
+              >
                 Add to Cart
-                </button>
+              </button>
           </div>
       </div>
     </div>

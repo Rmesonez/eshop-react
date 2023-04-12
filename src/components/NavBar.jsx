@@ -20,9 +20,9 @@ const activeLink = ({ isActive }) => isActive ? 'active' : ''
 const NavBar = () => {
 
     const cartItems  = useSelector(state => state.cart)
-    console.log(cartItems)
+    // console.log(cartItems)
 
-
+    const cartQuantity = cartItems.length;
 
     const cart = (
         <span className="cart">
@@ -30,7 +30,9 @@ const NavBar = () => {
                 <FaShoppingCart
                 size={20}
                 />
-                <p className="cart-quantity">0</p>
+                <p className="cart-quantity">
+                    {cartQuantity}
+                </p>
             </Link>
         </span>
     )
@@ -55,7 +57,7 @@ const NavBar = () => {
             const user = JSON.parse(atob(token.split('.')[1]))
             setUserName(user?.user?.firstName)
             setUserLastName(user?.user?.lastName)
-            console.log(user)
+            // console.log(user)
         }else{
             setUserName(null)
         }

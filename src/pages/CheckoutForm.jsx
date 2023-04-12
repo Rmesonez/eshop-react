@@ -4,6 +4,7 @@ import CheckoutSummary from './CheckoutSummary';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import { cartCheckoutThunk } from '../store/slices/cart.slice';
 
 
 
@@ -46,7 +47,7 @@ const CheckoutForm = () => {
         progress: undefined,
       });
     }else {
-    toast.success('Payment Successful', {
+      toast.success('Payment Successful', {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -57,7 +58,7 @@ const CheckoutForm = () => {
     });
     setTimeout(() => {
     navigate('/purchases');
-    }, 5000);
+    }, 4000);
   }
   }
 
@@ -110,7 +111,7 @@ const CheckoutForm = () => {
               />
               </div>
               <button id="submit" className='button' disabled={
-                cardNumber.length === 16 && expiryDate.length === 4 && cvc.length === 3 ? true : false
+                cardNumber.length !== 16 || expiryDate.length !== 5 || cvc.length !== 3
               }>
                 <span id="button-text">
                     Pay now

@@ -4,73 +4,105 @@ import Card from "../components/Card";
 import './Cart.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect} from 'react';
-import { getCartItemsThunk } from '../store/slices/cart.slice';
+import { getCartItemsThunk, deleteCartItemThunk, updateCartItemThunk, cartCheckoutThunk } from '../store/slices/cart.slice';
 
 const Cart = () => {
 
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getCartItemsThunk());
   }, []);
+
+  const cartItems = useSelector((state) => state.cart);
+
+  const updateCart = (id, quantity) => {
+    const data = {
+      quantity: quantity
+    }
+    dispatch(updateCartItemThunk( id, data));
+  }
+
+  const clearCart = () => {
+    cartItems.forEach((item) => {
+      dispatch(deleteCartItemThunk(item.id));
+    });
+  }
 
   return (
     <div>
       <div className='table'>
         <h2>Shopping Cart</h2>
               <Link to="/#products">&larr; Continue shopping</Link>
-            </div>
-            
-         <div className="container-table">       
-
-                  <h5 className="title title-1">s/n</h5>
-                    <p className="info-sn">+1</p>
-                  <h5 className="title title-2">Product</h5>
-                    <div className='info-image'>
-                    <img
-                          // src={imageURL}
-                          // alt={name}
-                          // style={{ widh5: "100px" }}
-                    />
-                    <p>
-                      <b> name </b>
+        </div>
+                
+            {
+              cartItems.map((item) => (
+                  <div key={item.id}  className="container-table">
+                    <h5 className="title title-1">
+                      <b>#</b>
+                    </h5>
+                    <p className="info-sn">
+                      <b>{item.id}</b>
                     </p>
-                    </div>
-                  <h5 className="title title-3">Price</h5>
-                    <p className="info-price">price</p>
-                    <h5 className="title title-4">Quantity</h5>
+                    <h5 className="title title-2">
+                      <b>Product</b>
+                    </h5>
+                    <div className='info-image'>
+                      <img
+                        src={item?.product?.images[0]?.url}
+                        alt={item?.product?.title}
+                        style={{ width: "100px" }}
+                      />
+                      <p>
+                        <b>{item?.product?.title}</b>
+                      </p>
+                      </div>
+                    <h5 className="title title-3">
+                      <b>Price</b>
+                    </h5>
+                    <p className="info-price">
+                      <b>{item?.product?.price}</b>
+                    </p>
+                    <h5 className="title title-4">
+                      <b>Quantity</b>
+                    </h5>
                     <div className='count'>
                       <button
-                      className="btn-minus">
-                        -
-                      </button>
-                          <p className="qty">
-                            <b>quantity</b>
-                          </p>
-                          <button
-                            className="btn-plus"
-                          >
-                            +
-                          </button>
-                      </div>
-                      <h5 className="title title-5">Total</h5>
-                      <p className="info-total">price s/dec</p>
-                      <h5 className="title title-6">Action</h5>
-                      <div className='icons'>
-                        <FaTrashAlt
-                          size={19}
-                          color="red"
-                        />
-                      </div>
-                    </div>
-
-                  
-                  
-
+                        className="btn-minus"
+                        onClick={ () => updateCart(item.id, item.quantity + 1) }
+                        >+</button>
+                        <span> { item.quantity } </span>
+                        <button
+                        onClick={ () => item.quantity > 1 ? updateCart(item.id, item.quantity - 1) : item.quantity
+                        }
+                        >-</button>
+                        </div>
+                        <h5 className="title title-5">
+                          <b>Total</b>
+                        </h5>
+                        <p className="info-total">
+                          <b>{item?.product?.price * item.quantity}</b>
+                        </p>
+                        <h5 className="title title-6">
+                          <b>Actions</b>
+                        </h5>
+                        <button
+                        className="btn-delete"
+                        onClick={() => dispatch(deleteCartItemThunk(item.id))}
+                        >
+                          <FaTrashAlt />
+                        </button>
+                  </div>
+              ))
+            }
+              
             <div className='summary'>
               <button 
               className="clear-cart" 
+              onClick={() => clearCart()}
               >
                 Clear Cart
               </button>
@@ -81,17 +113,20 @@ const Cart = () => {
                 <br />
 
                 <Card cardClass='card'>
-                  <p>
-                    <b> $ quantity</b>
-                  </p>
-                  <div className='text'>
-                    <h4>Subtotal:</h4>
-                    <h3>Total</h3>
-                  </div>
-                  <p>Tax an shipping calculated at checkout</p>
+                        <p>
+                          <b>Products: { cartItems.length }</b>
+                        </p>
+                        <div className="text">
+                          <h4>Total Mount:</h4>
+                          <h3>${ 
+                              cartItems.reduce((acc, item) => {
+                                return acc + item.product.price * item.quantity
+                              }, 0).toFixed(2)
+                            }</h3>
+                        </div>
                   <button
                     className="--btn --btn-primary "
-                    onClick={() => navigate("/checkout")}
+                    onClick={() => {navigate("/checkout"), dispatch(cartCheckoutThunk())}}
                   >
                     Checkout
                   </button>

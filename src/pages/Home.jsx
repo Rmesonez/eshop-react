@@ -8,6 +8,7 @@ import StarsRating from "react-star-rate";
 import { toast, ToastContainer } from "react-toastify";
 import Card from '../components/Card'
 import { getProductsThunk, filterCategoriesThunk, filterNameThunk } from '../store/slices/products.slice'
+import { getCartItemsThunk, addCartItemThunk } from "../store/slices/cart.slice"
 import Loader from '../components/Loader'
 import Slider from '../components/Slider'
 
@@ -83,11 +84,21 @@ const Home = () => {
   };
 
   //add to cart
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product))
+
+  const [quantity, setQuantity] = useState(1)
+
+  useEffect(() => {
+    dispatch(getCartItemsThunk())
+  }, [])
+
+  const addToCart = () => {
+    const data = {
+      quantity: quantity,
+      productId: products?.[0]?.id
+    }
+    dispatch(addCartItemThunk(data))
+    console.log(data)
   }
-
-
 
   return (
     <>
@@ -179,7 +190,9 @@ const Home = () => {
                 Product Detail
                   </Link>
                 </button>
-                <button>Add to Cart</button>
+                <button
+                onClick={addToCart}
+                >Add to Cart</button>
                 </div>
             </div>
           ))
@@ -197,7 +210,7 @@ const Home = () => {
                   </Link>
                 </button>
                 <button
-                onClick={ () => handleAddToCart(product)}
+                onClick={ addToCart }
                 >Add to Cart</button>
                 </div>
             </div>

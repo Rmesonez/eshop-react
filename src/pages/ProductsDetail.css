@@ -60,6 +60,15 @@
     background: #033468;
 }
 
+.detail-quantity{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    gap: 15px;
+}
+
 @media screen and (max-width: 768px){
     .product-detail{
         flex-direction: column;

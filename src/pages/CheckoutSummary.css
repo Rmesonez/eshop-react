@@ -46,6 +46,17 @@ align-items: center;
     margin: 30px auto;
 }
 
+.summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid lightblue;
+    margin: 30px auto;
+}
+
 @media screen and (max-width: 1200px) {
     .checkout-summary{
         width: 100%;
