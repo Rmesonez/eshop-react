@@ -1,14 +1,35 @@
-// import { useRef } from "react";
 import Card from "../components/Card";
 import './Contact.css'
 import { FaPhoneAlt, FaEnvelope, FaGithub } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 // import emailjs from "@emailjs/browser";
-// import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+
+ const submitForm = (e) => {
+    e.preventDefault();
+    toast.success("Message sent successfully", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    setTimeout(() => {
+      navigate("/");
+      window.location.reload();
+    }, 3000);
+  };
+
+
+
   return (
     <div>
+    <ToastContainer />
     <div className='contact-container'>
       <h2>Contact Us</h2>
       <div className='section-contact'>
@@ -42,7 +63,9 @@ const Contact = () => {
             />
             <label>Message</label>
             <textarea name="message" cols="30" rows="10"></textarea>
+            <div className="contact-btn">
             <button className="btn contact-button">Send Message</button>
+            </div>
             </div>
           </Card>
         </form>

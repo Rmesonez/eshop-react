@@ -2,7 +2,7 @@ import './Home.css'
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import StarsRating from "react-star-rate";
 import { toast, ToastContainer } from "react-toastify";
@@ -91,13 +91,21 @@ const Home = () => {
     dispatch(getCartItemsThunk())
   }, [])
 
+  const navigate = useNavigate()
+
   const addToCart = () => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      toast.error('You must be logged in to add items to your cart')
+      navigate('/login')
+    }else{
     const data = {
       quantity: quantity,
       productId: products?.[0]?.id
     }
     dispatch(addCartItemThunk(data))
     console.log(data)
+  }
   }
 
   return (

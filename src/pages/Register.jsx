@@ -65,9 +65,11 @@ const Register = () => {
         {...register('password')}/>
         <input type="number" placeholder='Phone Number' required
         {...register('phone')}/>
+        <div className="register-btn">
         <button 
         className='btn'
         type='submit'>Register</button>
+        </div>
       </form>
         <span className='register'>
           <p>Already have an account?</p>

@@ -78,9 +78,11 @@ const Login = () => {
           <input type="password" placeholder='Password' 
           {...register("password")}
           required/>
+          <div className='login-btn'>
           <button 
           className='btn'
           type='submit'>Login</button>
+          </div>
           {/* <div className="reset-links">
             <Link to='/reset'>
               Forgot your Password?
