@@ -10,7 +10,7 @@
 .products-container{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1.8rem;
     margin: 10px;
     grid-area: products;
