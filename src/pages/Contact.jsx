@@ -35,7 +35,6 @@ const Contact = () => {
       <div className='section-contact'>
         <form 
         className="contact-form"
-        // ref={form} 
         onSubmit={submitForm}
         >
           <Card cardClass='contact-card'>

@@ -71,8 +71,6 @@ const CheckoutForm = () => {
     dispatch(cartCheckoutThunk(cartItems));
   }
 
-
-
   return (
     
     <div className='checkout'>
