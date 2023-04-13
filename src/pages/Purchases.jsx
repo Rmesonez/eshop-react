@@ -56,7 +56,7 @@ const Purchases = () => {
                   className={
                     status === 'Not Delivered' ? 'status' : 'delivered'
                   }
-                  > {status}
+                  > { status === 'Not Delivered' ? 'Not Delivered' : 'Delivered' }
                   </h5>
                 </li>
               ))
