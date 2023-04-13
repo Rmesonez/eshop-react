@@ -41,7 +41,7 @@ const CheckoutForm = () => {
     }else if (cvc.length !== 3) {
       toast.error('Invalid CVC', {
         position: "bottom-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -49,9 +49,10 @@ const CheckoutForm = () => {
         progress: undefined,
       });
     }else {
+      window.location.reload();
       toast.success('Payment Successful', {
       position: "bottom-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -61,7 +62,7 @@ const CheckoutForm = () => {
     checkout();
     setTimeout(() => {
     navigate('/purchases');
-    }, 3000);
+    }, 2000);
   }
   }
 

@@ -125,6 +125,7 @@ const Home = () => {
             />
         <Card cardClass='card'>
               <form 
+              id='rate-form'
               className='rate-form'
               onSubmit={(e) => handleSubmit(submitReview(e))}
               >

@@ -167,7 +167,7 @@ background-color: #fff;
         width: 100%;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.5);
-        transform: translateX(-200px);
+        transform: translateX();
         transition: all 0.3s;
     }
 
@@ -192,8 +192,7 @@ background-color: #fff;
     align-items: center;
     }
 
-    li {
-        width: 100%;
+    .nav-links > li {
         padding: 5px 0;
         border-bottom: 1px solid #333;
         margin: 7px 0;

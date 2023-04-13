@@ -91,6 +91,7 @@ const NavBar = () => {
 
             <ul
             onClick={ hideMenu }
+            className='nav-links'
             >
                 <li className='logo-mobile'>
                     {logo}
