@@ -60,6 +60,12 @@
     background: #033468;
 }
 
+.product-info-btn button:hover{
+    background: #fff;
+    color: #033468;
+    border: 1px solid #033468;
+}
+
 .detail-quantity{
     width: 100%;
     display: flex;
