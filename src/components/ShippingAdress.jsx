@@ -5,7 +5,8 @@ import Form from 'react-bootstrap/Form';
 const ShippingAdress = ({ show, handleClose, status }) => {
 
 
-    const submit = () => {
+    const submit = (e) => {
+      e.preventDefault()
       status('Delivered')
       handleClose()
   }

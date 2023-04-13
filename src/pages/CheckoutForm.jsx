@@ -17,18 +17,11 @@ const CheckoutForm = () => {
   const cartItems = useSelector((state) => state.cart);
 
 
-  const submit = () => {
-    if (cardNumber.length !== 16) {
-      toast.error('Invalid Card Number');
-    }else if (expiryDate.length !== 5) {
-      toast.error('Invalid Expiration Date');
-    }else if (cvc.length !== 3) {
-      toast.error('Invalid CVC');
-    }else {
+  const submit = (e) => {
+    e.preventDefault();
       toast.success('Payment Successful');
       checkout();
       navigate('/purchases');
-  }
   }
 
   const dispatch = useDispatch();

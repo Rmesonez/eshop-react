@@ -10,7 +10,8 @@ const Contact = () => {
 
   const navigate = useNavigate();
 
- const submitForm = () => {
+ const submitForm = (e) => {
+      e.preventDefault();
     toast.success("Message sent successfully");
       navigate("/");
   };
