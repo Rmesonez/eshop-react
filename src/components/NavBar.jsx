@@ -133,7 +133,10 @@ const NavBar = () => {
                     <NavLink to='/purchases' className={ activeLink }>
                         Purchases
                     </NavLink>
-                    <Link to='/' onClick={logOut}>
+                    <Link to='/' onClick={logOut}
+                    className={
+                        token ? '' : 'not-loged'
+                    }                    >
                         Log Out
                     </Link>
                 </span>
