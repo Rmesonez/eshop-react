@@ -5,6 +5,7 @@ import axios from "axios"
 import Loader from "../components/Loader"
 import'./ProductsDetail.css'
 import { addCartItemThunk } from "../store/slices/cart.slice"
+import { toast, ToastContainer } from "react-toastify"
 
 const ProductsDetail = () => {
 
@@ -36,11 +37,17 @@ const ProductsDetail = () => {
   }, [])
 
   const addToCart = () => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      toast.error('You need to login to add products to cart')
+      navigate('/login')
+    }else{
     const data = {
       quantity: quantity,
       productId: productDetail.id
     }
     dispatch(addCartItemThunk(data))
+  }
     
   }
 
@@ -51,6 +58,7 @@ const ProductsDetail = () => {
   return (
     isLoading ? <Loader /> :
     <div className='product-detail'>
+      <ToastContainer />
       <img src={productDetail?.images?.[0]?.url} alt={productDetail?.name} />
       <div className="info-detail">
       <h1 className="info-title">{productDetail?.title}</h1>

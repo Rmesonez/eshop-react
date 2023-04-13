@@ -208,6 +208,10 @@
     text-decoration: none;
 }
 
+.product-btn button a:hover{
+    color: darkslategrey;
+}
+
 .product-btn button a:visited{
     color: #fff;
 }

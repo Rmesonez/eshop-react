@@ -24,6 +24,11 @@
     color: #fff;
 }
 
+#dark button:hover{
+    background-color: #fff;
+    color: #451111;
+}
+
 #dark .price{
     color: #451111;
     font-weight: bold;
@@ -56,7 +61,19 @@
 #dark .icons span{
     color: #451111;
 }
+#dark .info-detail p span{
+    color: #451111;
+}
+
 
 #dark nav{
     background-color: #451111;
+}
+
+#dark .count span{
+    color: #451111;
+}
+
+#dark .product-btn button a:hover{
+    color: #451111;
 }

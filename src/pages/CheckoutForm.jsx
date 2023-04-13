@@ -1,7 +1,7 @@
 import './CheckoutForm.css'
 import Card from '../components/Card';
 import CheckoutSummary from './CheckoutSummary';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { cartCheckoutThunk } from '../store/slices/cart.slice';
@@ -19,50 +19,15 @@ const CheckoutForm = () => {
 
   const submit = () => {
     if (cardNumber.length !== 16) {
-      toast.error('Invalid Card Number', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error('Invalid Card Number');
     }else if (expiryDate.length !== 5) {
-      toast.error('Invalid Expiration Date', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error('Invalid Expiration Date');
     }else if (cvc.length !== 3) {
-      toast.error('Invalid CVC', {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error('Invalid CVC');
     }else {
-      window.location.reload();
-      toast.success('Payment Successful', {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    checkout();
-    setTimeout(() => {
-    navigate('/purchases');
-    }, 2000);
+      toast.success('Payment Successful');
+      checkout();
+      navigate('/purchases');
   }
   }
 
@@ -75,6 +40,7 @@ const CheckoutForm = () => {
   return (
     
     <div className='checkout'>
+      <ToastContainer />
         <h2>Checkout</h2>
         <form 
         onSubmit={submit}
