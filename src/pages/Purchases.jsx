@@ -27,22 +27,20 @@ const Purchases = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
-
-
   return (
     <div className='purchases-container'>
       <h1>Purchases</h1>
           <ul className='purchases-list'>
-          {/* <button
-                  onClick={() => {
-                    setShow(true);
-                }}
-                  >Shipping Adress
-                  </button>
-                  <ShippingAdress show={ show } handleClose={ handleClose }
-                  key={purchases.id}
-                  purchases={purchases}
-                  /> */}
+          <button
+            onClick={() => {
+              setShow(true)
+          }}
+            >Shipping Adress
+            </button>
+            <ShippingAdress show={ show } handleClose={ handleClose }
+            key={purchases.id}
+            status={setStatus}
+            />
             {
               purchases.map((purchase) => (
                 <li key={purchase.id}
@@ -60,20 +58,9 @@ const Purchases = () => {
                   }
                   > {status}
                   </h5>
-                  <button
-                  onClick={() => {
-                    setShow(true)
-                }}
-                  >Shipping Adress
-                  </button>
-                  <ShippingAdress show={ show } handleClose={ handleClose }
-                  key={purchases.id}
-                  status={setStatus}
-                  purchase={purchase}
-                  />
                 </li>
               ))
-              }
+            }
           </ul>     
     </div>
   )

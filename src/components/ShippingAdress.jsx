@@ -2,18 +2,12 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const ShippingAdress = ({ show, handleClose, status, purchase }) => {
+const ShippingAdress = ({ show, handleClose, status }) => {
 
-  const purchaseId = purchase.id
 
     const submit = () => {
-    if (purchaseId === purchase.id){
       status('Delivered')
       handleClose()
-    }else{
-      status('Not Delivered')
-      handleClose()
-    }
   }
 
 
@@ -29,12 +23,6 @@ const ShippingAdress = ({ show, handleClose, status, purchase }) => {
     </Offcanvas.Header>
     <Offcanvas.Body>
     <Form onSubmit={submit}>
-
-        <Form.Group className="mb-3" id="formBasicName">
-        <Form.Label>PurchaseId</Form.Label>
-        <Form.Control type="text" value={purchaseId} 
-        disabled/>
-        </Form.Group>
 
         <Form.Group className="mb-3" id="formBasicName">
         <Form.Label>Name</Form.Label>

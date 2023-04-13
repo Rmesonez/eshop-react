@@ -11,18 +11,8 @@ const Contact = () => {
   const navigate = useNavigate();
 
  const submitForm = () => {
-    toast.success("Message sent successfully", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    setTimeout(() => {
+    toast.success("Message sent successfully");
       navigate("/");
-    }, 3000);
   };
 
 

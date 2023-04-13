@@ -198,9 +198,10 @@ const Home = () => {
                 Product Detail
                   </Link>
                 </button>
-                <button
+                {/* <button
                 onClick={addToCart}
-                >Add to Cart</button>
+                >Add to Cart
+                </button> */}
                 </div>
             </div>
           ))
@@ -217,9 +218,10 @@ const Home = () => {
                 Product Detail
                   </Link>
                 </button>
-                <button
+                {/* <button
                 onClick={ addToCart }
-                >Add to Cart</button>
+                >Add to Cart
+                </button> */}
                 </div>
             </div>
           ))
