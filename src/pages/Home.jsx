@@ -101,7 +101,7 @@ const Home = () => {
     }else{
       const data = {
         quantity: quantity,
-        productId: products?.[0]?.id
+        productId: products?.filter((product) => product?.id === products?.[0]?.id)[0]?.id
       }
       dispatch(addCartItemThunk(data))
   }
